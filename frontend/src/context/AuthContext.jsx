@@ -6,27 +6,29 @@ import axios from "axios";
 const AuthContext = ({ children }) => {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
+useEffect(() => {
     const verifyUser = async () => {
       try {
         const token = localStorage.getItem("token");
         if (token) {
           const response = await axios.get(
-            "/http://localhost:3000/api/auth/verify",
+            "http://localhost:3000/api/auth/verify",
             {
               headers: {
                 Authorization: `Bearer ${token}`,
               },
             },
           );
+          console.log(response);
           if (response.data.success) {
             setUser(response.data.user);
           }
         } else {
           setUser(null);
+          setLoading(false);
         }
       } catch (error) {
+        console.log(error);
         if (error.response && !error.response.data.error) {
           setUser(null);
         }
