@@ -6,6 +6,8 @@ import PrivateRoutes from "./utils/PrivateRoutes";
 import RoleBasedRoute from "./utils/RoleBasedRoute";
 import AdminSummary from "./components/dashboard/AdminSummary";
 import DepartmentList from "./components/departments/DepartmentList";
+import AddDepartment from "./components/departments/AddDepartment";
+import EditDepartment from "./components/departments/EditDepartment";
 
 function App() {
   return (
@@ -24,6 +26,8 @@ function App() {
       >
         <Route index element={<AdminSummary />} />
         <Route path="departments" element={<DepartmentList />} />
+        <Route path="add-department" element={<AddDepartment />} />
+        <Route path="departments/:id" element={<EditDepartment />} />
       </Route>
 
       <Route path="/employee-dashboard" element={<EmployeeDashboard />} />
