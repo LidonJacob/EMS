@@ -80,7 +80,7 @@ const DepartmentList = () => {
           />
           <Link
             to="/admin-dashboard/add-department"
-            className="px-4 py-1 bg-teal-600 rounded text-white"
+            className="px-4 py-1 bg-teal-600 rounded text-white hover:cursor-pointer"
           >
             Add New Department
           </Link>
